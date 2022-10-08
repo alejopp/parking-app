@@ -5,6 +5,15 @@ plugins {
     id 'org.jetbrains.kotlin.android' version '1.7.0' apply false
 }
 
+ext {
+    junitVersion = "4.13.2"
+    mockVersion = '1.12.4'
+    roomVersion = "2.4.3"
+    navigationVersion = "2.5.2"
+    lifecycleVersion = "2.5.1"
+    daggerHiltVersion = "2.44"
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
