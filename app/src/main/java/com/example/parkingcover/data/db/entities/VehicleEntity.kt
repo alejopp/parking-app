@@ -6,5 +6,6 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "vehicle")
 data class VehicleEntity (
-    @PrimaryKey @ColumnInfo(name = "license_plate") val licensePlate: String
+    @PrimaryKey @ColumnInfo(name = "license_plate") val licensePlate: String,
+    @ColumnInfo(name = "user_owner") val userOwner: String
 )

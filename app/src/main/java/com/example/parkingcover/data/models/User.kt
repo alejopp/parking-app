@@ -1,5 +1,6 @@
 package com.example.parkingcover.data.models
 
 data class User(
-    val userId: String
+    val userId: String,
+    val name: String
 )

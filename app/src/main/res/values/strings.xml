@@ -3,4 +3,6 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="unknown_sql_exception">Sql error</string>
+    <string name="unknown_error">Unknown error</string>
 </resources>
