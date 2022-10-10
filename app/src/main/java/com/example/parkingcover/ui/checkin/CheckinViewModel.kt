@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.parkingcover.R
-import com.example.parkingcover.data.db.repository.ParkingRepository
+import com.example.parkingcover.data.repository.ParkingRepository
 import com.example.parkingcover.data.models.ParkingSlotsLog
 import com.example.parkingcover.data.models.User
 import com.example.parkingcover.data.models.Vehicle

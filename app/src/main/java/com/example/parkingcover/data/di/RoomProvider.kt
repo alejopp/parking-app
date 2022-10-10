@@ -6,8 +6,8 @@ import com.example.parkingcover.data.db.ParkingDatabase
 import com.example.parkingcover.data.db.dao.ParkingSlotsDao
 import com.example.parkingcover.data.db.dao.UserDao
 import com.example.parkingcover.data.db.dao.VehicleDao
-import com.example.parkingcover.data.db.repository.ParkingRepository
-import com.example.parkingcover.data.db.repository.ParkingRepositoryImpl
+import com.example.parkingcover.data.repository.ParkingRepository
+import com.example.parkingcover.data.repository.ParkingRepositoryImpl
 import com.example.parkingcover.utils.DATABASE_NAME
 import dagger.Module
 import dagger.Provides

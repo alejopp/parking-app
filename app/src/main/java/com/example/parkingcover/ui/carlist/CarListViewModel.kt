@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.parkingcover.data.db.repository.ParkingRepository
+import com.example.parkingcover.data.repository.ParkingRepository
 import com.example.parkingcover.data.models.ParkingSlotsLog
 import com.example.parkingcover.utils.ResponseStatus
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -1,4 +1,4 @@
-package com.example.parkingcover.data.db.repository
+package com.example.parkingcover.data.repository
 
 import com.example.parkingcover.data.db.entities.ParkingSlotLogEntity
 import com.example.parkingcover.data.models.ParkingSlotsLog
@@ -20,4 +20,5 @@ interface ParkingRepository {
     suspend fun insertLog(parkingSlotsLog: ParkingSlotsLog): ResponseStatus<Unit>
     suspend fun getLogs(): ResponseStatus<List<ParkingSlotsLog>>
     suspend fun getLogWithoutCheckout(vehicleId: String): ResponseStatus<ParkingSlotsLog>
+    suspend fun setTimeOut(vehicleId: String, timeOut: Int): ResponseStatus<Unit>
 }

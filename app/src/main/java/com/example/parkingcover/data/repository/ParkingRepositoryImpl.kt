@@ -1,9 +1,8 @@
-package com.example.parkingcover.data.db.repository
+package com.example.parkingcover.data.repository
 
 import com.example.parkingcover.data.db.dao.ParkingSlotsDao
 import com.example.parkingcover.data.db.dao.UserDao
 import com.example.parkingcover.data.db.dao.VehicleDao
-import com.example.parkingcover.data.db.entities.ParkingSlotLogEntity
 import com.example.parkingcover.data.db.makeDatabaseCall
 import com.example.parkingcover.data.mappers.toEntity
 import com.example.parkingcover.data.mappers.toModel
@@ -52,4 +51,11 @@ class ParkingRepositoryImpl @Inject constructor(
         makeDatabaseCall {
             parkingSlotsDao.getLogWithoutCheckOut(vehicleId).toModel()
         }
+
+    override suspend fun setTimeOut(
+        vehicleId: String,
+        timeOut: Int
+    ): ResponseStatus<Unit> = makeDatabaseCall {
+        parkingSlotsDao.setTimeOut(vehicleId, timeOut)
+    }
 }

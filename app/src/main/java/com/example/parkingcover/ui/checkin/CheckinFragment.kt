@@ -9,17 +9,14 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.parkingcover.R
-import com.example.parkingcover.databinding.FragmentHomeBinding
+import com.example.parkingcover.databinding.FragmentCheckinBinding
 import com.example.parkingcover.utils.ResponseStatus
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class CheckinFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private var _binding: FragmentCheckinBinding? = null
     private val binding get() = _binding!!
     private lateinit var checkinViewModel: CheckinViewModel
 
@@ -31,7 +28,7 @@ class CheckinFragment : Fragment() {
          checkinViewModel =
              ViewModelProvider(this)[CheckinViewModel::class.java]
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentCheckinBinding.inflate(inflater, container, false)
         listenEvents()
         observeViewModel()
         return binding.root
