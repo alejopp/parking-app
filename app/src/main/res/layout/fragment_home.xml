@@ -14,8 +14,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="64dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Document"
+        android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,8 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Name"
+        android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="@+id/etv_checkin_document"
         app:layout_constraintTop_toBottomOf="@+id/etv_checkin_document" />
 
@@ -36,8 +36,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Placa"
+        android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="@+id/etv_checkin_driver_name"
         app:layout_constraintTop_toBottomOf="@+id/etv_checkin_driver_name" />
 
@@ -47,8 +47,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="H in"
+        android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="@+id/etv_checkin_license_plate"
         app:layout_constraintTop_toBottomOf="@+id/etv_checkin_license_plate" />
 
@@ -62,4 +62,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etv_checkin_time_in" />
 
+    <ProgressBar
+        android:id="@+id/pb_checkin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

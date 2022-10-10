@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_checkin">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_checkin"
         android:name="com.example.parkingcover.ui.checkin.CheckinFragment"
-        android:label="@string/title_home"
+        android:label="@string/title_checkin"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_checkout"
         android:name="com.example.parkingcover.ui.checkout.CheckoutFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_checkout"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_carlist"
         android:name="com.example.parkingcover.ui.carlist.CarListFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_carlist"
         tools:layout="@layout/fragment_car_list" />
 </navigation>

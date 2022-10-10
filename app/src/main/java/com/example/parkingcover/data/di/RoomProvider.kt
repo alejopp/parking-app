@@ -3,6 +3,11 @@ package com.example.parkingcover.data.di
 import android.content.Context
 import androidx.room.Room
 import com.example.parkingcover.data.db.ParkingDatabase
+import com.example.parkingcover.data.db.dao.ParkingSlotsDao
+import com.example.parkingcover.data.db.dao.UserDao
+import com.example.parkingcover.data.db.dao.VehicleDao
+import com.example.parkingcover.data.db.repository.ParkingRepository
+import com.example.parkingcover.data.db.repository.ParkingRepositoryImpl
 import com.example.parkingcover.utils.DATABASE_NAME
 import dagger.Module
 import dagger.Provides
@@ -32,5 +37,14 @@ object RoomProvider {
     @Provides
     fun provideParkSlogLogDao(db: ParkingDatabase) = db.getParkingSlotsDao()
 
+    @Provides
+    @Singleton
+    fun providePostRepository(
+        userDao: UserDao,
+        vehicleDao: VehicleDao,
+        parkingSlotsDao: ParkingSlotsDao
+    ): ParkingRepository {
+        return ParkingRepositoryImpl(userDao, vehicleDao, parkingSlotsDao)
+    }
 
 }

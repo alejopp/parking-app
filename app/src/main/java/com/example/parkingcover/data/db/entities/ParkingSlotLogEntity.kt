@@ -10,5 +10,5 @@ data class ParkingSlotLogEntity (
     @ColumnInfo(name = "license_plate") val licensePlate: String,
     @ColumnInfo(name = "user_name") val userName: String,
     @ColumnInfo(name = "time_in") val timeIn: Int,
-    @ColumnInfo(name = "time_out") val timeOut: Int
+    @ColumnInfo(name = "time_out") val timeOut: Int?
 )

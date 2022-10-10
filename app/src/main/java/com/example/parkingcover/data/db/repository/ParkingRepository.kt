@@ -19,5 +19,5 @@ interface ParkingRepository {
     //Parking slots log
     suspend fun insertLog(parkingSlotsLog: ParkingSlotsLog): ResponseStatus<Unit>
     suspend fun getLogs(): ResponseStatus<List<ParkingSlotsLog>>
-    suspend fun getLogWithoutCheckout(userOrVehicleId: String): ResponseStatus<ParkingSlotsLog>
+    suspend fun getLogWithoutCheckout(vehicleId: String): ResponseStatus<ParkingSlotsLog>
 }

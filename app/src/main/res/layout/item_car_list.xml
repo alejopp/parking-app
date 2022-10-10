@@ -20,7 +20,7 @@
         app:layout_constraintGuide_percent="0.75" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tv_car_list_vehicle_id"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/tv_car_list_car_owner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -40,11 +40,11 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintStart_toEndOf="@+id/vgl_card_list_25"
         app:layout_constraintEnd_toStartOf="@+id/vgl_card_list_75"
-        app:layout_constraintTop_toTopOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="@+id/tv_car_list_vehicle_id"
         tools:layout_editor_absoluteX="198dp" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/tv_car_list_time_in"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@+id/vgl_card_list_75"
@@ -52,6 +52,6 @@
         android:layout_marginEnd="8dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView7" />
+        app:layout_constraintTop_toTopOf="@+id/tv_car_list_car_owner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

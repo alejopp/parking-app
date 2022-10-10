@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">Parking cover</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_checkin">Checkin</string>
+    <string name="title_checkout">Checkout</string>
+    <string name="title_carlist">Car List</string>
     <string name="unknown_sql_exception">Sql error</string>
     <string name="unknown_error">Unknown error</string>
+    <string name="log_insert_success">Car registered correctly</string>
+    <string name="error_message">An error has occurred</string>
+    <string name="car_is_already_in">Car is already in.</string>
 </resources>

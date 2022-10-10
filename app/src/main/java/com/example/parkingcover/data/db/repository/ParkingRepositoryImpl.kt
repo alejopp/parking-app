@@ -48,8 +48,8 @@ class ParkingRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getLogWithoutCheckout(userOrVehicleId: String): ResponseStatus<ParkingSlotsLog> =
+    override suspend fun getLogWithoutCheckout(vehicleId: String): ResponseStatus<ParkingSlotsLog> =
         makeDatabaseCall {
-            parkingSlotsDao.getLogWithoutCheckOut(userOrVehicleId).toModel()
+            parkingSlotsDao.getLogWithoutCheckOut(vehicleId).toModel()
         }
 }
