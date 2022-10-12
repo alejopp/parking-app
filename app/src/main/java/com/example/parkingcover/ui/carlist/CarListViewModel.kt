@@ -24,7 +24,7 @@ class CarListViewModel @Inject constructor(private val parkingRepository: Parkin
     fun getCarsInParking() {
         viewModelScope.launch {
             _status.value = ResponseStatus.Loading()
-            val response = parkingRepository.getLogs()
+            val response = parkingRepository.getCarsIn()
             if (response is ResponseStatus.Success){
                 _carsInParking.value = response.data
                 _status.value = ResponseStatus.Success(response.data)
