@@ -24,8 +24,8 @@ class CheckoutViewModel @Inject constructor(private val parkingRepository: Parki
     private var _totalTime = MutableLiveData<Int>()
     val totalTime: LiveData<Int> get() = _totalTime
 
-    private var _totalPrice = MutableLiveData<Float>()
-    val totalPrice: LiveData<Float> get() = _totalPrice
+    private var _totalPrice = MutableLiveData<Double>()
+    val totalPrice: LiveData<Double> get() = _totalPrice
 
 
     private suspend fun setTimeOut(vehicleId: String, timeOut: Int){
@@ -34,17 +34,27 @@ class CheckoutViewModel @Inject constructor(private val parkingRepository: Parki
         }
     }
 
-    fun calculateTotalTimeAndTotalPrice(vehicleId: String, timeOut: Int) {
+    fun setTotalTimeAndTotalPrice(vehicleId: String, timeOut: Int) {
         viewModelScope.launch {
-            val response = parkingRepository.getLogWithoutCheckout(vehicleId)
-            if (response is ResponseStatus.Success){
-                getTotalTime(response.data.timeIn, timeOut)
+            val getCarWothoutCheckOut = parkingRepository.getLogWithoutCheckout(vehicleId)
+            if (getCarWothoutCheckOut is ResponseStatus.Success){
+                val totalTime = getTotalTime(getCarWothoutCheckOut.data.timeIn, timeOut)
+                _totalTime.value = totalTime
+                val totalPrice = getTotalPrice(totalTime)
+                _totalPrice.value = totalPrice
                 setTimeOut(vehicleId, timeOut)
             }
         }
     }
 
-    private fun getTotalTime(timeIn: Int, timeOut: Int){
-        _totalTime.value =  timeOut!! - timeIn
+    private fun getTotalPrice(totalTime: Int): Double {
+        val hours = totalTime / 100
+        val minutes = totalTime % 100
+        val totalMinutes = hours * 60 + minutes
+        return totalMinutes / 60.0
+    }
+
+    private fun getTotalTime(timeIn: Int, timeOut: Int): Int{
+        return  timeOut!! - timeIn
     }
 }

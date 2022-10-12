@@ -33,11 +33,14 @@ class CheckoutFragment : Fragment() {
         checkoutViewModel.totalTime.observe(viewLifecycleOwner){ totalTime ->
             binding.tvCheckoutTotalTime.text = totalTime.toString()
         }
+        checkoutViewModel.totalPrice.observe(viewLifecycleOwner){ totalPrice ->
+            binding.tvCheckoutTotalPayment.text = totalPrice.toString()
+        }
     }
 
     private fun setListeners() {
         binding.btCheckoutSend.setOnClickListener {
-            checkoutViewModel.calculateTotalTimeAndTotalPrice(
+            checkoutViewModel.setTotalTimeAndTotalPrice(
                 binding.etvCheckoutVehicleId.text.toString(),
                 binding.etvCheckoutTimeOut.text.toString().toInt()
             )
