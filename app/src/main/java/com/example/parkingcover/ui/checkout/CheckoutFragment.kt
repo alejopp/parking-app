@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.parkingcover.R
 import com.example.parkingcover.databinding.FragmentCheckoutBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,11 +31,12 @@ class CheckoutFragment : Fragment() {
     }
 
     private fun observeViewModel() {
-        checkoutViewModel.totalTime.observe(viewLifecycleOwner){ totalTime ->
-            binding.tvCheckoutTotalTime.text = totalTime.toString()
+        checkoutViewModel.totalTime.observe(viewLifecycleOwner) { totalTime ->
+            binding.tvCheckoutTotalTime.text =
+                getString(R.string.total_time, totalTime.first, totalTime.second)
         }
-        checkoutViewModel.totalPrice.observe(viewLifecycleOwner){ totalPrice ->
-            binding.tvCheckoutTotalPayment.text = totalPrice.toString()
+        checkoutViewModel.totalPrice.observe(viewLifecycleOwner) { totalPrice ->
+            binding.tvCheckoutTotalPayment.text = getString(R.string.total_price, totalPrice)
         }
     }
 

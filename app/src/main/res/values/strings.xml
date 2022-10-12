@@ -9,4 +9,6 @@
     <string name="error_message">An error has occurred</string>
     <string name="car_is_already_in">Car is already in.</string>
     <string name="button_send">Send</string>
+    <string name="total_time">Total time %dH %dM</string>
+    <string name="total_price">Total $: %.2f</string>
 </resources>

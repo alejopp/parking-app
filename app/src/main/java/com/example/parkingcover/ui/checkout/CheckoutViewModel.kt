@@ -15,14 +15,19 @@ import javax.inject.Inject
 class CheckoutViewModel @Inject constructor(private val parkingRepository: ParkingRepository) :
     ViewModel() {
 
+    companion object{
+        const val NUMBER_OF_HUNDREDS = 100
+        const val SECONDS_IN_A_MINUTE = 60
+        const val PRICE_X_MINUTE = 60.0
+    }
     private val _status = MutableLiveData<ResponseStatus<Any>>()
     val status: LiveData<ResponseStatus<Any>> get() = _status
 
     private val _car = MutableLiveData<ResponseStatus<ParkingSlotsLog>>()
     val car: LiveData<ResponseStatus<ParkingSlotsLog>> get() = _car
 
-    private var _totalTime = MutableLiveData<Int>()
-    val totalTime: LiveData<Int> get() = _totalTime
+    private var _totalTime = MutableLiveData<Pair<Int,Int>>()
+    val totalTime: LiveData<Pair<Int,Int>> get() = _totalTime
 
     private var _totalPrice = MutableLiveData<Double>()
     val totalPrice: LiveData<Double> get() = _totalPrice
@@ -48,14 +53,25 @@ class CheckoutViewModel @Inject constructor(private val parkingRepository: Parki
         }
     }
 
-    private fun getTotalPrice(totalTime: Int): Double {
-        val hours = totalTime / 100
-        val minutes = totalTime % 100
-        val totalMinutes = hours * 60 + minutes
-        return totalMinutes / 60.0
+    private fun getTotalPrice(totalTime: Pair<Int,Int>): Double {
+        val hours = totalTime.first
+        val minutes = totalTime.second
+        val totalMinutes = hours * SECONDS_IN_A_MINUTE + minutes
+        return totalMinutes / PRICE_X_MINUTE
     }
 
-    private fun getTotalTime(timeIn: Int, timeOut: Int): Int{
-        return  timeOut!! - timeIn
+    private fun getTotalTime(timeIn: Int, timeOut: Int): Pair<Int,Int>{
+        val hoursTimeIn = timeIn / NUMBER_OF_HUNDREDS
+        val minutesTimeIn = timeIn % NUMBER_OF_HUNDREDS
+        val hoursTimeOut = timeOut / NUMBER_OF_HUNDREDS
+        val minutesTimeOut = timeOut % NUMBER_OF_HUNDREDS
+        var hoursTotalTime = hoursTimeOut - hoursTimeIn
+        var minutesTotalTime = minutesTimeOut - minutesTimeIn
+        if (minutesTotalTime < 0){
+            hoursTotalTime--
+            minutesTotalTime+= SECONDS_IN_A_MINUTE
+        }
+
+        return  Pair(hoursTotalTime, minutesTotalTime)
     }
 }
