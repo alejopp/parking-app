@@ -53,9 +53,9 @@ class CheckinFragment : Fragment() {
     private fun listenEvents() {
         binding.btnCheckinSend.setOnClickListener {
             checkinViewModel.isCarRegistered(
-                binding.etvCheckinDocument.text.toString(),
-                binding.etvCheckinDriverName.text.toString(),
-                binding.etvCheckinLicensePlate.text.toString(),
+                binding.etvCheckinUserId.text.toString(),
+                binding.etvCheckinUserName.text.toString(),
+                binding.etvCheckinVehicleId.text.toString(),
                 binding.etvCheckinTimeIn.text.toString().toInt(),
                 null
             )

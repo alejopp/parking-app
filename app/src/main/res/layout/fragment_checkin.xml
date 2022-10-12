@@ -6,61 +6,88 @@
     android:layout_height="match_parent"
     tools:context=".ui.checkin.CheckinFragment">
 
-
-    <EditText
-        android:id="@+id/etv_checkin_document"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="64dp"
-        android:ems="10"
-        android:hint="Document"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/etv_checkin_driver_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/etv_checkin_document"
-        app:layout_constraintTop_toBottomOf="@+id/etv_checkin_document" />
-
-    <EditText
-        android:id="@+id/etv_checkin_license_plate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Placa"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/etv_checkin_driver_name"
-        app:layout_constraintTop_toBottomOf="@+id/etv_checkin_driver_name" />
-
-    <EditText
-        android:id="@+id/etv_checkin_time_in"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="H in"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/etv_checkin_license_plate"
-        app:layout_constraintTop_toBottomOf="@+id/etv_checkin_license_plate" />
-
-    <Button
-        android:id="@+id/btn_checkin_send"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_checkin_user_id"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:hint="User ID"
+        app:layout_constraintEnd_toEndOf="@id/vgl_checkin_85"
+        app:layout_constraintStart_toStartOf="@id/vgl_checkin_15"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etv_checkin_user_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_checkout_user_name"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="User name"
+        app:layout_constraintEnd_toEndOf="@id/vgl_checkin_85"
+        app:layout_constraintStart_toStartOf="@id/vgl_checkin_15"
+        app:layout_constraintTop_toBottomOf="@id/til_checkin_user_id">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etv_checkin_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_checkin_vehicle_id"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Vehicle ID"
+        app:layout_constraintEnd_toEndOf="@id/vgl_checkin_85"
+        app:layout_constraintStart_toStartOf="@id/vgl_checkin_15"
+        app:layout_constraintTop_toBottomOf="@id/til_checkout_user_name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etv_checkin_vehicle_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_checkin_time_in"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Time in: HHMM"
+        app:layout_constraintEnd_toEndOf="@id/vgl_checkin_85"
+        app:layout_constraintStart_toStartOf="@id/vgl_checkin_15"
+        app:layout_constraintTop_toBottomOf="@id/til_checkin_vehicle_id">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etv_checkin_time_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_checkin_send"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
         android:layout_marginTop="32dp"
         android:text="Send"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etv_checkin_time_in" />
+        app:layout_constraintEnd_toEndOf="@id/vgl_checkin_85"
+        app:layout_constraintStart_toStartOf="@id/vgl_checkin_15"
+        app:layout_constraintTop_toBottomOf="@+id/til_checkin_time_in" />
 
     <ProgressBar
         android:id="@+id/pb_checkin"
@@ -71,4 +98,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vgl_checkin_15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vgl_checkin_85"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
 </androidx.constraintlayout.widget.ConstraintLayout>
