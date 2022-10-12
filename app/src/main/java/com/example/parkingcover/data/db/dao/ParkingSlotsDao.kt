@@ -11,8 +11,8 @@ interface ParkingSlotsDao {
     @Insert
     suspend fun insertLog(parkingSlotLog: ParkingSlotLogEntity)
 
-    @Query("SELECT * FROM parking_slots_log")
-    suspend fun getLogs(): List<ParkingSlotLogEntity>
+    @Query("SELECT * FROM parking_slots_log WHERE time_out IS NULL")
+    suspend fun getCarsIn(): List<ParkingSlotLogEntity>
 
     @Query("SELECT * FROM parking_slots_log WHERE license_plate = :vehicleId AND time_out IS NULL")
     suspend fun getLogWithoutCheckOut(vehicleId: String): ParkingSlotLogEntity

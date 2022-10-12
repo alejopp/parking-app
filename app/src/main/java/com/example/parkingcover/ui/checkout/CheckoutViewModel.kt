@@ -31,14 +31,15 @@ class CheckoutViewModel @Inject constructor(private val parkingRepository: Parki
     private suspend fun setTimeOut(vehicleId: String, timeOut: Int){
         viewModelScope.launch {
             parkingRepository.setTimeOut(vehicleId, timeOut)
+
         }
     }
 
     fun setTotalTimeAndTotalPrice(vehicleId: String, timeOut: Int) {
         viewModelScope.launch {
-            val getCarWothoutCheckOut = parkingRepository.getLogWithoutCheckout(vehicleId)
-            if (getCarWothoutCheckOut is ResponseStatus.Success){
-                val totalTime = getTotalTime(getCarWothoutCheckOut.data.timeIn, timeOut)
+            val getCarWithoutCheckOut = parkingRepository.getLogWithoutCheckout(vehicleId)
+            if (getCarWithoutCheckOut is ResponseStatus.Success){
+                val totalTime = getTotalTime(getCarWithoutCheckOut.data.timeIn, timeOut)
                 _totalTime.value = totalTime
                 val totalPrice = getTotalPrice(totalTime)
                 _totalPrice.value = totalPrice

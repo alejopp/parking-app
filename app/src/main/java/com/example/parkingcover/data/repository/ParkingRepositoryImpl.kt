@@ -41,8 +41,8 @@ class ParkingRepositoryImpl @Inject constructor(
         parkingSlotsDao.insertLog(parkingSlotsLog.toEntity())
     }
 
-    override suspend fun getLogs(): ResponseStatus<List<ParkingSlotsLog>> = makeDatabaseCall {
-        parkingSlotsDao.getLogs().map { parkingSlotLogEntity ->
+    override suspend fun getCarsIn(): ResponseStatus<List<ParkingSlotsLog>> = makeDatabaseCall {
+        parkingSlotsDao.getCarsIn().map { parkingSlotLogEntity ->
             parkingSlotLogEntity.toModel()
         }
     }
